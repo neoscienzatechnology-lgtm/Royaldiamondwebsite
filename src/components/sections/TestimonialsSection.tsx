@@ -3,30 +3,30 @@ import { Star, Quote } from 'lucide-react';
 const testimonials = [
   {
     name: 'Sarah Mitchell',
-    location: 'Seattle, WA',
+    location: 'North Bend, WA',
     rating: 5,
-    text: 'Royal Diamond WA has been cleaning my home for over a year now. Their attention to detail is incredible, and my house has never looked better. Highly recommend!',
+    text: 'Royal Diamond has been cleaning my home for over a year now. Their attention to detail is incredible, and my house has never looked better. Highly recommend!',
     image: 'SM',
   },
   {
     name: 'Michael Chen',
-    location: 'Bellevue, WA',
+    location: 'Snoqualmie, WA',
     rating: 5,
     text: 'Professional, punctual, and thorough. The team always goes above and beyond. I love coming home to a spotless house after their visits.',
     image: 'MC',
   },
   {
     name: 'Jennifer Adams',
-    location: 'Tacoma, WA',
+    location: 'Issaquah, WA',
     rating: 5,
     text: 'We used their move-out cleaning service and were amazed at the results. They transformed our old apartment and we got our full deposit back!',
     image: 'JA',
   },
   {
     name: 'David Thompson',
-    location: 'Redmond, WA',
+    location: 'Fall City, WA',
     rating: 5,
-    text: 'As a busy professional, having Royal Diamond WA handle my cleaning needs has been a game-changer. Reliable, trustworthy, and excellent quality every time.',
+    text: 'As a busy professional, having Royal Diamond handle my cleaning needs has been a game-changer. Reliable, trustworthy, and excellent quality every time.',
     image: 'DT',
   },
 ];
