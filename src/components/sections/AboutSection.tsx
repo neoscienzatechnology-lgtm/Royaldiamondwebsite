@@ -1,6 +1,9 @@
 import { Users, Target, Heart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-
+import aboutCleaner from '@/assets/about-cleaner.jpg';
+import aboutLiving from '@/assets/about-living.jpg';
+import aboutBathroom from '@/assets/about-bathroom.jpg';
+import aboutSupplies from '@/assets/about-supplies.jpg';
 const AboutSection = () => {
   return (
     <section id="about" className="py-24 bg-background overflow-hidden">
@@ -62,15 +65,15 @@ const AboutSection = () => {
               <div className="space-y-4">
                 <div className="rounded-2xl overflow-hidden shadow-elevated">
                   <img
-                    src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=400&h=500&fit=crop"
+                    src={aboutCleaner}
                     alt="Professional cleaner at work"
                     className="w-full h-64 object-cover"
                   />
                 </div>
                 <div className="rounded-2xl overflow-hidden shadow-elevated">
                   <img
-                    src="https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?w=400&h=300&fit=crop"
-                    alt="Clean modern kitchen"
+                    src={aboutBathroom}
+                    alt="Clean modern bathroom"
                     className="w-full h-48 object-cover"
                   />
                 </div>
@@ -78,15 +81,15 @@ const AboutSection = () => {
               <div className="space-y-4 pt-8">
                 <div className="rounded-2xl overflow-hidden shadow-elevated">
                   <img
-                    src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&h=300&fit=crop"
+                    src={aboutLiving}
                     alt="Luxury home interior"
                     className="w-full h-48 object-cover"
                   />
                 </div>
                 <div className="rounded-2xl overflow-hidden shadow-elevated">
                   <img
-                    src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=500&fit=crop"
-                    alt="Cleaning supplies"
+                    src={aboutSupplies}
+                    alt="Eco-friendly cleaning supplies"
                     className="w-full h-64 object-cover"
                   />
                 </div>
