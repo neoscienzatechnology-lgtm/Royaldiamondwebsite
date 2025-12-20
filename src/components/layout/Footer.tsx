@@ -32,13 +32,13 @@ const Footer = () => {
                   Royal Diamond
                 </span>
                 <span className="text-xs tracking-widest uppercase text-primary-foreground/60">
-                  WA Cleaning
+                  Cleaning
                 </span>
               </div>
             </a>
             <p className="text-primary-foreground/70 text-sm leading-relaxed mb-6">
-              Premium cleaning services for homes and businesses across Washington. 
-              Experience the Royal Diamond difference.
+              Premium cleaning services for homes and businesses in the North Bend area. 
+              Serving communities within 30 miles of North Bend, WA.
             </p>
             <div className="flex gap-4">
               <a href="#" className="w-10 h-10 rounded-lg bg-primary-foreground/10 flex items-center justify-center text-primary-foreground/60 hover:bg-gold hover:text-navy transition-all">
@@ -103,8 +103,8 @@ const Footer = () => {
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-gold flex-shrink-0 mt-0.5" />
                 <span className="text-primary-foreground/70 text-sm">
-                  Serving Greater Washington Area<br />
-                  Seattle, Bellevue, Tacoma & More
+                  Serving North Bend & Surrounding Areas<br />
+                  Within 30 miles: Issaquah, Snoqualmie & More
                 </span>
               </li>
               <li className="flex items-center gap-3">

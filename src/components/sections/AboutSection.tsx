@@ -16,9 +16,9 @@ const AboutSection = () => {
               <span className="text-gradient-gold">Excellence</span>
             </h2>
             <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-              Founded with a vision to redefine cleaning standards in Washington, 
-              Royal Diamond WA has grown from a small family business to a trusted 
-              name in premium cleaning services.
+              Founded with a vision to redefine cleaning standards in the North Bend area, 
+              Royal Diamond has grown from a small family business to a trusted 
+              name in premium cleaning services, proudly serving communities within 30 miles of North Bend.
             </p>
             <p className="text-muted-foreground mb-8 leading-relaxed">
               Our commitment to excellence, attention to detail, and dedication to 
