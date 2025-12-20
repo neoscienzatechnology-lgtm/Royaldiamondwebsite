@@ -36,8 +36,8 @@ const HeroSection = () => {
 
           {/* Subheadline */}
           <p className="text-lg md:text-xl text-primary-foreground/80 mb-10 max-w-2xl animate-slide-up delay-100">
-            Impeccable cleaning for homes and businesses across Washington. 
-            Experience the Royal Diamond difference with our professional, reliable, and detail-oriented service.
+            Impeccable cleaning for homes and businesses in the North Bend area. 
+            Serving communities within 30 miles with professional, reliable, and detail-oriented service.
           </p>
 
           {/* CTA Button */}
