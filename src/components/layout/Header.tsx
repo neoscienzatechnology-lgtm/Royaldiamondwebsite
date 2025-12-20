@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Diamond, Phone } from 'lucide-react';
+import { Menu, X, Phone } from 'lucide-react';
+import logo from '@/assets/logo.png';
 import { Button } from '@/components/ui/button';
 
 const navLinks = [
@@ -34,17 +35,8 @@ const Header = () => {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
-          {/* Logo */}
           <a href="#home" className="flex items-center gap-2 group">
-            <Diamond className={`w-8 h-8 transition-colors duration-300 ${isScrolled ? 'text-gold' : 'text-gold'}`} />
-            <div className="flex flex-col">
-              <span className={`font-serif text-xl font-bold leading-tight transition-colors duration-300 ${isScrolled ? 'text-foreground' : 'text-primary-foreground'}`}>
-                Royal Diamond
-              </span>
-              <span className={`text-xs tracking-widest uppercase transition-colors duration-300 ${isScrolled ? 'text-muted-foreground' : 'text-primary-foreground/70'}`}>
-                WA Cleaning
-              </span>
-            </div>
+            <img src={logo} alt="Royal Diamond Cleaning Service" className="h-12 w-auto" />
           </a>
 
           {/* Desktop Navigation */}
