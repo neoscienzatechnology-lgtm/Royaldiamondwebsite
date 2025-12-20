@@ -105,7 +105,11 @@ const ServicesSection = () => {
 
         {/* CTA */}
         <div className="text-center mt-16">
-          <Button variant="gold" size="xl">
+          <Button 
+            variant="gold" 
+            size="xl"
+            onClick={() => window.dispatchEvent(new CustomEvent('openEstimateChat'))}
+          >
             View All Services
             <ArrowRight className="w-5 h-5" />
           </Button>
