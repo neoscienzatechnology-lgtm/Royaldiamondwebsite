@@ -5,7 +5,7 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
 };
 
-const SYSTEM_PROMPT = `You are a friendly and professional customer service representative for Royal Diamond WA, a premium house cleaning service in Washington State.
+const SYSTEM_PROMPT = `You are a friendly and professional customer service representative for Royal Diamond Cleaning, a premium house cleaning service serving the North Bend, WA area (within 30 miles including Snoqualmie, Issaquah, Fall City, and surrounding communities).
 
 Your role is to:
 1. Greet customers warmly and professionally
