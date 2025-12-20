@@ -14,37 +14,31 @@ const services = [
     icon: CalendarDays,
     title: 'Recurring Cleaning',
     description: 'Regular weekly, bi-weekly, or monthly cleaning to keep your home consistently pristine.',
-    link: '#',
   },
   {
     icon: Sparkles,
     title: 'One-Time Cleaning',
     description: 'Perfect for special occasions, guests, or when you need a thorough refresh.',
-    link: '#',
   },
   {
     icon: Home,
     title: 'Deep Cleaning',
     description: 'Comprehensive top-to-bottom cleaning that reaches every corner and crevice.',
-    link: '#',
   },
   {
     icon: Truck,
     title: 'Move In / Move Out',
     description: 'Ensure your new home is spotless or leave your old one in perfect condition.',
-    link: '#',
   },
   {
     icon: Building2,
     title: 'Apartment & Condo',
     description: 'Specialized cleaning services tailored for apartment and condo living spaces.',
-    link: '#',
   },
   {
     icon: Leaf,
     title: 'Eco-Friendly Cleaning',
     description: 'Green cleaning solutions that are safe for your family and the environment.',
-    link: '#',
   },
 ];
 
@@ -89,13 +83,13 @@ const ServicesSection = () => {
               </p>
 
               {/* Link */}
-              <a
-                href={service.link}
+              <button
+                onClick={() => window.dispatchEvent(new CustomEvent('openEstimateChat'))}
                 className="inline-flex items-center gap-2 text-gold font-semibold hover:gap-3 transition-all"
               >
                 Learn More
                 <ArrowRight className="w-4 h-4" />
-              </a>
+              </button>
 
               {/* Decorative accent */}
               <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-gold/5 to-transparent rounded-tr-2xl rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

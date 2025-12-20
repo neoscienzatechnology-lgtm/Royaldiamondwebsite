@@ -33,16 +33,16 @@ const Footer = () => {
               Serving communities within 30 miles of North Bend, WA.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 rounded-lg bg-primary-foreground/10 flex items-center justify-center text-primary-foreground/60 hover:bg-gold hover:text-navy transition-all">
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg bg-primary-foreground/10 flex items-center justify-center text-primary-foreground/60 hover:bg-gold hover:text-navy transition-all">
                 <Facebook className="w-5 h-5" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-lg bg-primary-foreground/10 flex items-center justify-center text-primary-foreground/60 hover:bg-gold hover:text-navy transition-all">
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg bg-primary-foreground/10 flex items-center justify-center text-primary-foreground/60 hover:bg-gold hover:text-navy transition-all">
                 <Instagram className="w-5 h-5" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-lg bg-primary-foreground/10 flex items-center justify-center text-primary-foreground/60 hover:bg-gold hover:text-navy transition-all">
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg bg-primary-foreground/10 flex items-center justify-center text-primary-foreground/60 hover:bg-gold hover:text-navy transition-all">
                 <Twitter className="w-5 h-5" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-lg bg-primary-foreground/10 flex items-center justify-center text-primary-foreground/60 hover:bg-gold hover:text-navy transition-all">
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg bg-primary-foreground/10 flex items-center justify-center text-primary-foreground/60 hover:bg-gold hover:text-navy transition-all">
                 <Linkedin className="w-5 h-5" />
               </a>
             </div>
@@ -128,13 +128,13 @@ const Footer = () => {
             © {new Date().getFullYear()} Royal Diamond WA. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm">
-            <a href="#" className="text-primary-foreground/50 hover:text-gold transition-colors">
+            <button onClick={() => window.dispatchEvent(new CustomEvent('openEstimateChat'))} className="text-primary-foreground/50 hover:text-gold transition-colors">
               Privacy Policy
-            </a>
-            <a href="#" className="text-primary-foreground/50 hover:text-gold transition-colors">
+            </button>
+            <button onClick={() => window.dispatchEvent(new CustomEvent('openEstimateChat'))} className="text-primary-foreground/50 hover:text-gold transition-colors">
               Terms of Service
-            </a>
-            <a href="#" className="text-primary-foreground/50 hover:text-gold transition-colors">
+            </button>
+            <a href="#home" className="text-primary-foreground/50 hover:text-gold transition-colors">
               Sitemap
             </a>
           </div>
