@@ -26,7 +26,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="lg:col-span-1">
             <a href="#home" className="flex items-center gap-2 mb-6">
-              <img src={logo} alt="Royal Diamond Cleaning Service" className="h-14 w-auto" />
+              <img src={logo} alt="Royal Diamond Cleaning Service" className="h-[84px] w-auto" />
             </a>
             <p className="text-primary-foreground/70 text-sm leading-relaxed mb-6">
               Premium cleaning services for homes and businesses in the North Bend area. 
