@@ -93,7 +93,11 @@ const Header = () => {
                   {link.name}
                 </a>
               ))}
-              <div className="pt-4 border-t border-border">
+              <div className="pt-4 border-t border-border space-y-4">
+                <a href="sms:+14253996635" className="flex items-center justify-center gap-2 text-foreground font-medium py-2 hover:text-gold transition-colors">
+                  <Phone className="w-4 h-4" />
+                  (425) 399-6635
+                </a>
                 <Button variant="gold" size="lg" className="w-full" onClick={openChat}>
                   Request a Free Estimate
                 </Button>
