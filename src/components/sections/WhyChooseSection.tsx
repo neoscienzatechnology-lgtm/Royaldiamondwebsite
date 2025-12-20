@@ -94,7 +94,7 @@ const WhyChooseSection = () => {
         {/* Stats Bar */}
         <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 p-8 rounded-2xl bg-gold/10 border border-gold/20">
           <div className="text-center">
-            <p className="font-serif text-4xl md:text-5xl font-bold text-gold mb-2">10+</p>
+            <p className="font-serif text-4xl md:text-5xl font-bold text-gold mb-2">5+</p>
             <p className="text-primary-foreground/70 text-sm">Years Experience</p>
           </div>
           <div className="text-center">
