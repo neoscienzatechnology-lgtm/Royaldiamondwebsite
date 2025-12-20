@@ -1,14 +1,9 @@
-import { useState } from 'react';
-import { MapPin, ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 
 const CTASection = () => {
-  const [zipCode, setZipCode] = useState('');
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('CTA ZIP Code submitted:', zipCode);
+  const openChat = () => {
+    window.dispatchEvent(new CustomEvent('openEstimateChat'));
   };
 
   return (
@@ -36,23 +31,13 @@ const CTASection = () => {
             Experience the Royal Diamond difference. Book now and get 15% off your first cleaning service!
           </p>
 
-          {/* Form */}
-          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row justify-center gap-4 mb-8">
-            <div className="relative w-full sm:w-auto">
-              <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
-              <Input
-                type="text"
-                placeholder="Enter your ZIP code"
-                value={zipCode}
-                onChange={(e) => setZipCode(e.target.value)}
-                className="pl-12 h-14 w-full sm:w-72 bg-card border-0 text-foreground placeholder:text-muted-foreground rounded-xl shadow-lg"
-              />
-            </div>
-            <Button type="submit" variant="hero" size="xl" className="group">
+          {/* CTA Button */}
+          <div className="mb-8">
+            <Button onClick={openChat} variant="hero" size="xl" className="group">
               Get My Free Estimate
               <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
             </Button>
-          </form>
+          </div>
 
           {/* Trust Text */}
           <p className="text-primary-foreground/50 text-sm">
