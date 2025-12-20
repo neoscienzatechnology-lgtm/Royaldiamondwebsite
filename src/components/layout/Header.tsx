@@ -16,6 +16,11 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  const openChat = () => {
+    window.dispatchEvent(new CustomEvent('openEstimateChat'));
+    setIsMobileMenuOpen(false);
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -59,7 +64,7 @@ const Header = () => {
               <Phone className="w-4 h-4" />
               (425) 399-6635
             </a>
-            <Button variant="gold" size="lg">
+            <Button variant="gold" size="lg" onClick={openChat}>
               Request a Free Estimate
             </Button>
           </div>
@@ -89,7 +94,7 @@ const Header = () => {
                 </a>
               ))}
               <div className="pt-4 border-t border-border">
-                <Button variant="gold" size="lg" className="w-full">
+                <Button variant="gold" size="lg" className="w-full" onClick={openChat}>
                   Request a Free Estimate
                 </Button>
               </div>

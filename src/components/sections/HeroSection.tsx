@@ -1,16 +1,10 @@
-import { useState } from 'react';
-import { MapPin, ArrowRight, Sparkles, Shield, Clock } from 'lucide-react';
+import { ArrowRight, Sparkles, Shield, Clock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 import heroBackground from '@/assets/hero-background.jpg';
 
 const HeroSection = () => {
-  const [zipCode, setZipCode] = useState('');
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission
-    console.log('ZIP Code submitted:', zipCode);
+  const openChat = () => {
+    window.dispatchEvent(new CustomEvent('openEstimateChat'));
   };
 
   return (
@@ -46,23 +40,13 @@ const HeroSection = () => {
             Experience the Royal Diamond difference with our professional, reliable, and detail-oriented service.
           </p>
 
-          {/* Estimate Form */}
-          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 mb-12 animate-slide-up delay-200">
-            <div className="relative flex-1 max-w-xs">
-              <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
-              <Input
-                type="text"
-                placeholder="Enter your ZIP code"
-                value={zipCode}
-                onChange={(e) => setZipCode(e.target.value)}
-                className="pl-12 h-14 bg-card/95 border-0 text-foreground placeholder:text-muted-foreground rounded-xl shadow-lg"
-              />
-            </div>
-            <Button type="submit" variant="hero" size="xl" className="group">
+          {/* CTA Button */}
+          <div className="mb-12 animate-slide-up delay-200">
+            <Button onClick={openChat} variant="hero" size="xl" className="group">
               Get a Free Estimate
               <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
             </Button>
-          </form>
+          </div>
 
           {/* Trust Indicators */}
           <div className="flex flex-wrap gap-6 animate-slide-up delay-300">

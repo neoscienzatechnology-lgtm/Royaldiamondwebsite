@@ -15,7 +15,7 @@ const ChatWidget = () => {
   const [messages, setMessages] = useState<Message[]>([
     {
       role: 'assistant',
-      content: "Hello! 👋 Welcome to Royal Diamond WA. I'm here to help you get a free cleaning estimate. What type of cleaning service are you interested in today?"
+      content: "Hello! 👋 Welcome to Royal Diamond Cleaning. I'm here to help you get a free cleaning estimate. What type of cleaning service are you interested in today?"
     }
   ]);
   const [input, setInput] = useState('');
@@ -30,6 +30,13 @@ const ChatWidget = () => {
   useEffect(() => {
     scrollToBottom();
   }, [messages]);
+
+  // Listen for custom event to open chat
+  useEffect(() => {
+    const handleOpenChat = () => setIsOpen(true);
+    window.addEventListener('openEstimateChat', handleOpenChat);
+    return () => window.removeEventListener('openEstimateChat', handleOpenChat);
+  }, []);
 
   const extractLeadInfo = (text: string) => {
     const leadMatch = text.match(/\[LEAD_CAPTURED:([^\]]+)\]/);
