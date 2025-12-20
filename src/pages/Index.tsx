@@ -9,6 +9,7 @@ import TipsSection from '@/components/sections/TipsSection';
 import FAQSection from '@/components/sections/FAQSection';
 import CTASection from '@/components/sections/CTASection';
 import Footer from '@/components/layout/Footer';
+import ChatWidget from '@/components/chat/ChatWidget';
 
 const Index = () => {
   return (
@@ -47,6 +48,7 @@ const Index = () => {
           <CTASection />
         </main>
         <Footer />
+        <ChatWidget />
       </div>
     </>
   );
