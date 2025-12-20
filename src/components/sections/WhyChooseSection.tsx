@@ -98,11 +98,11 @@ const WhyChooseSection = () => {
             <p className="text-primary-foreground/70 text-sm">Years Experience</p>
           </div>
           <div className="text-center">
-            <p className="font-serif text-4xl md:text-5xl font-bold text-gold mb-2">5,000+</p>
+            <p className="font-serif text-4xl md:text-5xl font-bold text-gold mb-2">500+</p>
             <p className="text-primary-foreground/70 text-sm">Happy Customers</p>
           </div>
           <div className="text-center">
-            <p className="font-serif text-4xl md:text-5xl font-bold text-gold mb-2">50+</p>
+            <p className="font-serif text-4xl md:text-5xl font-bold text-gold mb-2">5+</p>
             <p className="text-primary-foreground/70 text-sm">Trained Cleaners</p>
           </div>
           <div className="text-center">
