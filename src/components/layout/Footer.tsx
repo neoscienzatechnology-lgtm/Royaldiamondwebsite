@@ -1,11 +1,11 @@
-import { Diamond, MapPin, Phone, Mail, Clock, Facebook, Instagram, Twitter, Linkedin } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, Facebook, Instagram, Twitter, Linkedin } from 'lucide-react';
+import logo from '@/assets/logo.png';
 
 const quickLinks = [
   { name: 'Home', href: '#home' },
   { name: 'Our Services', href: '#services' },
   { name: 'Why Choose Us', href: '#why-us' },
   { name: 'About Us', href: '#about' },
-  { name: 'Cleaning Tips', href: '#tips' },
   { name: 'FAQ', href: '#faq' },
 ];
 
@@ -26,15 +26,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="lg:col-span-1">
             <a href="#home" className="flex items-center gap-2 mb-6">
-              <Diamond className="w-8 h-8 text-gold" />
-              <div className="flex flex-col">
-                <span className="font-serif text-xl font-bold text-primary-foreground leading-tight">
-                  Royal Diamond
-                </span>
-                <span className="text-xs tracking-widest uppercase text-primary-foreground/60">
-                  Cleaning
-                </span>
-              </div>
+              <img src={logo} alt="Royal Diamond Cleaning Service" className="h-14 w-auto" />
             </a>
             <p className="text-primary-foreground/70 text-sm leading-relaxed mb-6">
               Premium cleaning services for homes and businesses in the North Bend area. 
@@ -109,8 +101,8 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-gold flex-shrink-0" />
-                <a href="tel:+1234567890" className="text-primary-foreground/70 hover:text-gold transition-colors text-sm">
-                  (123) 456-7890
+                <a href="sms:+14253996635" className="text-primary-foreground/70 hover:text-gold transition-colors text-sm">
+                  (425) 399-6635
                 </a>
               </li>
               <li className="flex items-center gap-3">
