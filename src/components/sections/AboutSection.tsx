@@ -1,9 +1,9 @@
 import { Users, Target, Heart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import aboutCleaner from '@/assets/about-cleaner.jpg';
+import aboutKitchen from '@/assets/about-kitchen.jpg';
 import aboutLiving from '@/assets/about-living.jpg';
 import aboutBathroom from '@/assets/about-bathroom.jpg';
-import aboutSupplies from '@/assets/about-supplies.jpg';
+import aboutBedroom from '@/assets/about-bedroom.jpg';
 const AboutSection = () => {
   return (
     <section id="about" className="py-24 bg-background overflow-hidden">
@@ -65,15 +65,15 @@ const AboutSection = () => {
               <div className="space-y-4">
                 <div className="rounded-2xl overflow-hidden shadow-elevated">
                   <img
-                    src={aboutCleaner}
-                    alt="Professional cleaner at work"
+                    src={aboutKitchen}
+                    alt="Pristine clean kitchen"
                     className="w-full h-64 object-cover"
                   />
                 </div>
                 <div className="rounded-2xl overflow-hidden shadow-elevated">
                   <img
                     src={aboutBathroom}
-                    alt="Clean modern bathroom"
+                    alt="Sparkling clean bathroom"
                     className="w-full h-48 object-cover"
                   />
                 </div>
@@ -82,14 +82,14 @@ const AboutSection = () => {
                 <div className="rounded-2xl overflow-hidden shadow-elevated">
                   <img
                     src={aboutLiving}
-                    alt="Luxury home interior"
+                    alt="Immaculate living room"
                     className="w-full h-48 object-cover"
                   />
                 </div>
                 <div className="rounded-2xl overflow-hidden shadow-elevated">
                   <img
-                    src={aboutSupplies}
-                    alt="Eco-friendly cleaning supplies"
+                    src={aboutBedroom}
+                    alt="Fresh clean bedroom"
                     className="w-full h-64 object-cover"
                   />
                 </div>
