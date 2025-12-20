@@ -53,19 +53,19 @@ const ChatWidget = () => {
     return null;
   };
 
-  const sendLeadSMS = async (leadInfo: any) => {
+  const sendLeadEmail = async (leadInfo: any) => {
     try {
-      const { error } = await supabase.functions.invoke('send-lead-sms', {
+      const { error } = await supabase.functions.invoke('send-lead-email', {
         body: leadInfo
       });
       
       if (error) {
-        console.error('Error sending lead SMS:', error);
+        console.error('Error sending lead email:', error);
       } else {
-        console.log('Lead SMS sent successfully');
+        console.log('Lead email sent successfully');
       }
     } catch (error) {
-      console.error('Failed to send lead SMS:', error);
+      console.error('Failed to send lead email:', error);
     }
   };
 
@@ -152,10 +152,10 @@ const ChatWidget = () => {
         }
       }
 
-      // Check for lead info and send SMS
+      // Check for lead info and send email
       const leadInfo = extractLeadInfo(assistantContent);
-      if (leadInfo && leadInfo.phone) {
-        await sendLeadSMS(leadInfo);
+      if (leadInfo && (leadInfo.phone || leadInfo.email)) {
+        await sendLeadEmail(leadInfo);
         toast({
           title: "Information received!",
           description: "Our team will contact you shortly.",
