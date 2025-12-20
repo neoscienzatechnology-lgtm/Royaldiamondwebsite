@@ -1,4 +1,4 @@
-import { MapPin, Phone, Mail, Clock, Facebook, Instagram, Twitter, Linkedin } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock } from 'lucide-react';
 import logo from '@/assets/logo.png';
 
 const quickLinks = [
@@ -28,24 +28,10 @@ const Footer = () => {
             <a href="#home" className="flex items-center gap-2 mb-6">
               <img src={logo} alt="Royal Diamond Cleaning Service" className="h-[84px] w-auto" />
             </a>
-            <p className="text-primary-foreground/70 text-sm leading-relaxed mb-6">
+            <p className="text-primary-foreground/70 text-sm leading-relaxed">
               Premium cleaning services for homes and businesses in the North Bend area. 
               Serving communities within 30 miles of North Bend, WA.
             </p>
-            <div className="flex gap-4">
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg bg-primary-foreground/10 flex items-center justify-center text-primary-foreground/60 hover:bg-gold hover:text-navy transition-all">
-                <Facebook className="w-5 h-5" />
-              </a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg bg-primary-foreground/10 flex items-center justify-center text-primary-foreground/60 hover:bg-gold hover:text-navy transition-all">
-                <Instagram className="w-5 h-5" />
-              </a>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg bg-primary-foreground/10 flex items-center justify-center text-primary-foreground/60 hover:bg-gold hover:text-navy transition-all">
-                <Twitter className="w-5 h-5" />
-              </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg bg-primary-foreground/10 flex items-center justify-center text-primary-foreground/60 hover:bg-gold hover:text-navy transition-all">
-                <Linkedin className="w-5 h-5" />
-              </a>
-            </div>
           </div>
 
           {/* Quick Links */}
