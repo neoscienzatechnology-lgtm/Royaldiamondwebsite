@@ -8,7 +8,6 @@ const navLinks = [
   { name: 'Our Services', href: '#services' },
   { name: 'Why Royal Diamond', href: '#why-us' },
   { name: 'About Us', href: '#about' },
-  { name: 'Cleaning Tips', href: '#tips' },
   { name: 'FAQ', href: '#faq' },
   { name: 'Contact', href: '#contact' },
 ];
