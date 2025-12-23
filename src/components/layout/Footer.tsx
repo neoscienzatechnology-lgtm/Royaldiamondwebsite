@@ -15,7 +15,6 @@ const services = [
   'Deep Cleaning',
   'Move In / Move Out',
   'Apartment Cleaning',
-  'Eco-Friendly Cleaning',
 ];
 
 const Footer = () => {

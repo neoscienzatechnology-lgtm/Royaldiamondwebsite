@@ -2,7 +2,6 @@ import {
   ClipboardCheck, 
   Shield, 
   Sparkles, 
-  Leaf, 
   Award, 
   HeartHandshake 
 } from 'lucide-react';
@@ -22,11 +21,6 @@ const features = [
     icon: Sparkles,
     title: 'Checklist-Based Cleaning',
     description: 'We follow a detailed checklist to ensure consistent, high-standard results every single time.',
-  },
-  {
-    icon: Leaf,
-    title: 'Eco-Friendly Products',
-    description: 'Choose our green cleaning options using environmentally safe products that protect your family and planet.',
   },
   {
     icon: Award,

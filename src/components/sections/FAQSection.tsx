@@ -12,7 +12,7 @@ const faqs = [
   },
   {
     question: 'Are your cleaning products safe for children and pets?',
-    answer: 'Absolutely! We use high-quality, eco-friendly cleaning products that are safe for families with children and pets. We also offer completely green cleaning options upon request.',
+    answer: 'Absolutely! We use high-quality cleaning products that are safe for families with children and pets.',
   },
   {
     question: 'How do I schedule a cleaning appointment?',
