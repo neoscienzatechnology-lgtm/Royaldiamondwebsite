@@ -4,7 +4,6 @@ import {
   Home, 
   Truck, 
   Building2, 
-  Leaf, 
   ArrowRight 
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -34,11 +33,6 @@ const services = [
     icon: Building2,
     title: 'Apartment & Condo',
     description: 'Specialized cleaning services tailored for apartment and condo living spaces.',
-  },
-  {
-    icon: Leaf,
-    title: 'Eco-Friendly Cleaning',
-    description: 'Green cleaning solutions that are safe for your family and the environment.',
   },
 ];
 

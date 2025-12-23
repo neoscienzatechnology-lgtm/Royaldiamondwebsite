@@ -17,11 +17,11 @@ const tips = [
     image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=300&fit=crop',
   },
   {
-    title: 'The Ultimate Guide to Eco-Friendly Cleaning',
-    excerpt: 'Discover natural cleaning solutions that are safe for your family and the environment.',
-    category: 'Green Living',
+    title: 'Bathroom Cleaning Hacks That Save Time',
+    excerpt: 'Learn professional techniques to keep your bathroom sparkling clean with minimal effort.',
+    category: 'Bathroom',
     readTime: '6 min read',
-    image: 'https://images.unsplash.com/photo-1563453392212-326f5e854473?w=400&h=300&fit=crop',
+    image: 'https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=400&h=300&fit=crop',
   },
 ];
 
