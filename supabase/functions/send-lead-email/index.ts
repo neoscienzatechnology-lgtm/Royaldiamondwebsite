@@ -7,9 +7,7 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
 };
 
-// IMPORTANT: Update this email after verifying your domain at https://resend.com/domains
-// Then you can send to any email address
-const BUSINESS_EMAIL = "seu-email@seu-dominio.com";
+const BUSINESS_EMAIL = "monicalimaw101@icloud.com";
 
 serve(async (req) => {
   if (req.method === "OPTIONS") {
