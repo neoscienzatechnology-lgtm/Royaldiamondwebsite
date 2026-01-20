@@ -7,9 +7,9 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
 };
 
-// In Resend testing mode, emails can only be sent to the account owner's email
-// To send to other recipients, verify a domain at https://resend.com/domains
-const BUSINESS_EMAIL = "neoscienzatechnology@gmail.com";
+// IMPORTANT: Update this email after verifying your domain at https://resend.com/domains
+// Then you can send to any email address
+const BUSINESS_EMAIL = "seu-email@seu-dominio.com";
 
 serve(async (req) => {
   if (req.method === "OPTIONS") {
