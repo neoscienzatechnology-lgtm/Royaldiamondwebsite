@@ -14,6 +14,9 @@ interface QuoteData {
   frequency: Frequency;
   homeSize: HomeSize;
   extras: Extra[];
+  contactName: string;
+  contactPhone: string;
+  contactEmail: string;
 }
 
 const PHONE_NUMBER = '+14253996635';
@@ -54,7 +57,7 @@ const EXTRA_LABELS: Record<string, string> = {
   none: 'None',
 };
 
-type Step = 'cleaningType' | 'frequency' | 'homeSize' | 'extras' | 'quote';
+type Step = 'cleaningType' | 'frequency' | 'homeSize' | 'extras' | 'contactName' | 'contactPhone' | 'contactEmail' | 'quote';
 
 interface Message {
   type: 'bot' | 'user';
@@ -81,7 +84,11 @@ const QuoteChatbot = () => {
     frequency: null,
     homeSize: null,
     extras: [],
+    contactName: '',
+    contactPhone: '',
+    contactEmail: '',
   });
+  const [inputValue, setInputValue] = useState('');
   const [messages, setMessages] = useState<Message[]>([]);
   const [emailSent, setEmailSent] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -153,12 +160,20 @@ const QuoteChatbot = () => {
     try {
       const { error } = await supabase.functions.invoke('send-lead-email', {
         body: {
-          name: 'Quote Request',
+          name: quoteInfo.contactName || 'Quote Request',
+          phone: quoteInfo.contactPhone,
+          email: quoteInfo.contactEmail,
           service: quoteInfo.cleaningType,
           estimate: quoteInfo.isDeepClean 
             ? '$60/hour (minimum 2 cleaners)' 
             : `$${quoteInfo.total}`,
           details: `
+CONTACT INFO:
+Name: ${quoteInfo.contactName || 'Not provided'}
+Phone: ${quoteInfo.contactPhone || 'Not provided'}
+Email: ${quoteInfo.contactEmail || 'Not provided'}
+
+QUOTE DETAILS:
 Cleaning Type: ${quoteInfo.cleaningType}
 ${quoteInfo.frequency ? `Frequency: ${quoteInfo.frequency}` : ''}
 Home Size: ${quoteInfo.homeSize}
@@ -286,39 +301,108 @@ Total: $${quoteInfo.total}` : ''}
           { type: 'user', content: extraLabel },
         ]);
 
-        // Generate quote
+        // Ask for contact name
         setTimeout(() => {
-          const finalQuoteData = {
-            ...quoteData,
-            homeSize: quoteData.homeSize,
-            extras: updatedExtras,
-          };
-          
-          const quote = calculateQuote();
-          const quoteInfo = {
-            cleaningType: quoteData.cleaningType === 'deep' ? 'Deep Cleaning (Move-in/Move-out)' : 'Regular Cleaning',
-            frequency: quoteData.frequency ? FREQUENCY_LABELS[quoteData.frequency] : 'N/A',
-            homeSize: HOME_SIZE_LABELS[quoteData.homeSize!],
-            extras: updatedExtras.filter(e => e !== 'none').map(e => EXTRA_LABELS[e].split(' - ')[0]),
-            ...quote,
-          };
-
           setMessages(prev => [
             ...prev,
             {
               type: 'bot',
-              content: '',
-              isQuote: true,
-              quoteData: quoteInfo,
+              content: "Great! Now let's get your contact info.\n\nWhat's your name?",
             },
           ]);
-          setStep('quote');
-
-          // Send email automatically
-          sendQuoteEmail(quoteInfo);
+          setStep('contactName');
         }, 300);
         break;
     }
+  };
+
+  const handleContactInput = () => {
+    if (!inputValue.trim()) return;
+
+    switch (step) {
+      case 'contactName':
+        setQuoteData(prev => ({ ...prev, contactName: inputValue.trim() }));
+        setMessages(prev => [
+          ...prev,
+          { type: 'user', content: inputValue.trim() },
+        ]);
+        setInputValue('');
+        
+        setTimeout(() => {
+          setMessages(prev => [
+            ...prev,
+            {
+              type: 'bot',
+              content: "What's your phone number?",
+            },
+          ]);
+          setStep('contactPhone');
+        }, 300);
+        break;
+
+      case 'contactPhone':
+        setQuoteData(prev => ({ ...prev, contactPhone: inputValue.trim() }));
+        setMessages(prev => [
+          ...prev,
+          { type: 'user', content: inputValue.trim() },
+        ]);
+        setInputValue('');
+        
+        setTimeout(() => {
+          setMessages(prev => [
+            ...prev,
+            {
+              type: 'bot',
+              content: "What's your email? (optional - press Enter to skip)",
+            },
+          ]);
+          setStep('contactEmail');
+        }, 300);
+        break;
+
+      case 'contactEmail':
+        const email = inputValue.trim();
+        setQuoteData(prev => ({ ...prev, contactEmail: email }));
+        setMessages(prev => [
+          ...prev,
+          { type: 'user', content: email || '(Skipped)' },
+        ]);
+        setInputValue('');
+        
+        // Generate quote with contact info
+        generateFinalQuote(email);
+        break;
+    }
+  };
+
+  const generateFinalQuote = (email?: string) => {
+    setTimeout(() => {
+      const quote = calculateQuote();
+      const quoteInfo = {
+        cleaningType: quoteData.cleaningType === 'deep' ? 'Deep Cleaning (Move-in/Move-out)' : 'Regular Cleaning',
+        frequency: quoteData.frequency ? FREQUENCY_LABELS[quoteData.frequency] : 'N/A',
+        homeSize: HOME_SIZE_LABELS[quoteData.homeSize!],
+        extras: quoteData.extras.filter(e => e !== 'none').map(e => EXTRA_LABELS[e].split(' - ')[0]),
+        contactName: quoteData.contactName,
+        contactPhone: quoteData.contactPhone,
+        contactEmail: email || quoteData.contactEmail,
+        ...quote,
+      };
+
+      setMessages(prev => [
+        ...prev,
+        {
+          type: 'bot',
+          content: '',
+          isQuote: true,
+          quoteData: quoteInfo,
+        },
+      ]);
+      setStep('quote');
+
+      // Send email with contact info
+      sendQuoteEmail(quoteInfo);
+    }, 300);
   };
 
   const generateSmsBody = () => {
@@ -345,7 +429,7 @@ Total: $${quoteInfo.total}` : ''}
 
   const resetChat = () => {
     setStep('cleaningType');
-    setQuoteData({ cleaningType: null, frequency: null, homeSize: null, extras: [] });
+    setQuoteData({ cleaningType: null, frequency: null, homeSize: null, extras: [], contactName: '', contactPhone: '', contactEmail: '' });
     setMessages([
       {
         type: 'bot',
@@ -361,6 +445,7 @@ Total: $${quoteInfo.total}` : ''}
       },
     ]);
     setEmailSent(false);
+    setInputValue('');
   };
 
   return (
@@ -528,12 +613,58 @@ Total: $${quoteInfo.total}` : ''}
             <div ref={messagesEndRef} />
           </div>
 
+          {/* Input for contact info */}
+          {(step === 'contactName' || step === 'contactPhone' || step === 'contactEmail') && (
+            <div className="p-3 border-t border-border bg-card">
+              <div className="flex gap-2">
+                <input
+                  type={step === 'contactEmail' ? 'email' : step === 'contactPhone' ? 'tel' : 'text'}
+                  value={inputValue}
+                  onChange={(e) => setInputValue(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter') {
+                      e.preventDefault();
+                      if (step === 'contactEmail' && !inputValue.trim()) {
+                        // Allow skipping email
+                        generateFinalQuote('');
+                      } else {
+                        handleContactInput();
+                      }
+                    }
+                  }}
+                  placeholder={
+                    step === 'contactName' ? 'Your name...' :
+                    step === 'contactPhone' ? 'Your phone number...' :
+                    'Your email (optional)...'
+                  }
+                  className="flex-1 px-4 py-2 rounded-full border border-border bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-gold/50"
+                  autoFocus
+                />
+                <Button
+                  onClick={() => {
+                    if (step === 'contactEmail' && !inputValue.trim()) {
+                      generateFinalQuote('');
+                    } else {
+                      handleContactInput();
+                    }
+                  }}
+                  className="px-4 rounded-full bg-gradient-gold text-navy hover:opacity-90"
+                  disabled={step !== 'contactEmail' && !inputValue.trim()}
+                >
+                  {step === 'contactEmail' && !inputValue.trim() ? 'Skip' : 'Send'}
+                </Button>
+              </div>
+            </div>
+          )}
+
           {/* Footer */}
-          <div className="p-3 border-t border-border bg-card text-center">
-            <p className="text-xs text-muted-foreground">
-              Questions? Call us: <a href={`tel:${PHONE_NUMBER}`} className="text-gold hover:underline">{PHONE_DISPLAY}</a>
-            </p>
-          </div>
+          {step !== 'contactName' && step !== 'contactPhone' && step !== 'contactEmail' && (
+            <div className="p-3 border-t border-border bg-card text-center">
+              <p className="text-xs text-muted-foreground">
+                Questions? Call us: <a href={`tel:${PHONE_NUMBER}`} className="text-gold hover:underline">{PHONE_DISPLAY}</a>
+              </p>
+            </div>
+          )}
         </div>
       )}
     </>
