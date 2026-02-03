@@ -18,6 +18,13 @@ const services = [
 ];
 
 const Footer = () => {
+  const handleNavClick = (href: string) => {
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <footer id="contact" className="bg-navy pt-20 pb-8">
       <div className="container mx-auto px-4">
@@ -41,12 +48,12 @@ const Footer = () => {
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.name}>
-                  <a
-                    href={link.href}
-                    className="text-primary-foreground/70 hover:text-gold transition-colors text-sm"
+                  <button
+                    onClick={() => handleNavClick(link.href)}
+                    className="text-primary-foreground/70 hover:text-gold transition-colors text-sm text-left"
                   >
                     {link.name}
-                  </a>
+                  </button>
                 </li>
               ))}
             </ul>
@@ -60,12 +67,12 @@ const Footer = () => {
             <ul className="space-y-3">
               {services.map((service) => (
                 <li key={service}>
-                  <a
-                    href="#services"
-                    className="text-primary-foreground/70 hover:text-gold transition-colors text-sm"
+                  <button
+                    onClick={() => handleNavClick('#services')}
+                    className="text-primary-foreground/70 hover:text-gold transition-colors text-sm text-left"
                   >
                     {service}
-                  </a>
+                  </button>
                 </li>
               ))}
             </ul>
@@ -119,7 +126,7 @@ const Footer = () => {
             <button onClick={() => window.dispatchEvent(new CustomEvent('openEstimateChat'))} className="text-primary-foreground/50 hover:text-gold transition-colors">
               Terms of Service
             </button>
-            <a href="#home" className="text-primary-foreground/50 hover:text-gold transition-colors">
+            <a href="#home" onClick={(e) => { e.preventDefault(); handleNavClick('#home'); }} className="text-primary-foreground/50 hover:text-gold transition-colors">
               Sitemap
             </a>
           </div>

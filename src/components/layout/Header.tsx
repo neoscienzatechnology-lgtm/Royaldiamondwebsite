@@ -21,6 +21,14 @@ const Header = () => {
     setIsMobileMenuOpen(false);
   };
 
+  const handleNavClick = (href: string) => {
+    setIsMobileMenuOpen(false);
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -46,15 +54,15 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
-              <a
+              <button
                 key={link.name}
-                href={link.href}
+                onClick={() => handleNavClick(link.href)}
                 className={`text-sm font-medium transition-colors duration-300 hover:text-gold ${
                   isScrolled ? 'text-foreground' : 'text-primary-foreground'
                 }`}
               >
                 {link.name}
-              </a>
+              </button>
             ))}
           </nav>
 
@@ -84,14 +92,13 @@ const Header = () => {
           <div className="lg:hidden absolute top-full left-0 right-0 bg-card shadow-elevated animate-fade-in">
             <nav className="container mx-auto px-4 py-6 flex flex-col gap-4">
               {navLinks.map((link) => (
-                <a
+                <button
                   key={link.name}
-                  href={link.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-foreground font-medium py-2 hover:text-gold transition-colors"
+                  onClick={() => handleNavClick(link.href)}
+                  className="text-foreground font-medium py-2 hover:text-gold transition-colors w-full text-left"
                 >
                   {link.name}
-                </a>
+                </button>
               ))}
               <div className="pt-4 border-t border-border space-y-4">
                 <a href="sms:+14253996635" className="flex items-center justify-center gap-2 text-foreground font-medium py-2 hover:text-gold transition-colors">

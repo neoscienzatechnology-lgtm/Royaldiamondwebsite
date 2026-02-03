@@ -10,6 +10,7 @@ import FAQSection from '@/components/sections/FAQSection';
 import CTASection from '@/components/sections/CTASection';
 import Footer from '@/components/layout/Footer';
 import QuoteChatbot from '@/components/chat/QuoteChatbot';
+import FloatingCallButton from '@/components/chat/FloatingCallButton';
 
 const Index = () => {
   return (
@@ -48,6 +49,7 @@ const Index = () => {
           <CTASection />
         </main>
         <Footer />
+        <FloatingCallButton />
         <QuoteChatbot />
       </div>
     </>
